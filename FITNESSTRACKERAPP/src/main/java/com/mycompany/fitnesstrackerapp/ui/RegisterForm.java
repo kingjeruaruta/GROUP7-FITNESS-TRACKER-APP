@@ -8,11 +8,8 @@ public class RegisterForm extends JFrame implements ActionListener {
 
     JLabel lblTitle, lblName, lblUsername;
     JLabel lblEmail, lblPassword, lblConfirmPassword;
-
     JTextField tfName, tfUsername, tfEmail;
-
     JPasswordField pfPassword, pfConfirmPassword;
-
     JButton btnRegister, btnCancel;
 
     public RegisterForm() {
@@ -81,17 +78,46 @@ public class RegisterForm extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
+    if (e.getSource() == btnRegister) {
 
-        if (e.getSource() == btnCancel) {
-            LoginFormUI app = new LoginFormUI();
-            app.setVisible(true);
-            this.dispose();
+        String password = String.valueOf(pfPassword.getPassword());
+        String confirmPassword = String.valueOf(pfConfirmPassword.getPassword());
+
+        if (tfName.getText().isEmpty()
+                || tfUsername.getText().isEmpty()
+                || tfEmail.getText().isEmpty()
+                || password.isEmpty()
+                || confirmPassword.isEmpty()) {
+
+            JOptionPane.showMessageDialog(this,
+                    "Please fill in all fields.");
+            return;
         }
 
-        if (e.getSource() == btnRegister) {
-            // Registration logic will go here.
+        if (!password.equals(confirmPassword)) {
+
+            JOptionPane.showMessageDialog(this,
+                    "Passwords do not match.");
+            return;
         }
+
+        JOptionPane.showMessageDialog(this,
+                "Registration Successful!");
+
+        LoginFormUI app = new LoginFormUI();
+        app.setVisible(true);
+
+        dispose();
     }
 
-    
+    else if (e.getSource() == btnCancel) {
+
+        LoginFormUI app = new LoginFormUI();
+        app.setVisible(true);
+
+        dispose();
+    }
 }
+    }
+

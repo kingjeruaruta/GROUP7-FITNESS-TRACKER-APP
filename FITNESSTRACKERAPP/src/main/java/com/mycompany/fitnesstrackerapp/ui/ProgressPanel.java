@@ -1,19 +1,22 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.mycompany.fitnesstrackerapp.ui;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-
+/**
+ *
+ * @author User
+ */
 public class ProgressPanel extends JFrame implements ActionListener{
     
-     JLabel lblTitle, lblTotalWorkouts;
+    JLabel lblTitle, lblTotalWorkouts;
     JLabel lblCalories, lblAverage;
     JLabel lblHistory;
-
     JComboBox<String> cbTimeRange;
-
     JTextArea txtHistory;
-
     JButton btnBack;
 
     public ProgressPanel() {
